@@ -1,12 +1,20 @@
 {
   "Version": 1,
-  "Hash": "NWforBEygec+ZlbFdzGBLhOCNfdLoer1NxDw1TvSFBs=",
+  "Hash": "X90IvtKQzodp0F12yyr3V6yQv1B+HtGP7a/VtGow0Rc=",
   "Source": "JDC-WEBX",
   "BasePath": "_content/JDC-WEBX",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "JDC-WEBX\\wwwroot",
+      "Source": "JDC-WEBX",
+      "ContentRoot": "C:\\JDC-WEBX\\wwwroot\\",
+      "BasePath": "_content/JDC-WEBX",
+      "Pattern": "**"
+    }
+  ],
   "Assets": [],
   "Endpoints": []
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JDC-WEBX")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+159ee4922a7f8c7b0bb67d3b2162dca09277d096")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e98bf7599673c53887303a5b174327e9678ee489")]
 [assembly: System.Reflection.AssemblyProductAttribute("JDC-WEBX")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JDC-WEBX")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
