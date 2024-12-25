@@ -1,26 +1,50 @@
-public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+public class Startup
 {
-    if (env.IsDevelopment())
+    public Startup(IConfiguration configuration)
     {
-        app.UseDeveloperExceptionPage();
+        Configuration = configuration;
     }
-    else
+
+    public IConfiguration Configuration { get; }
+
+    // Este método se llama en tiempo de ejecución. Usa este método para agregar servicios al contenedor.
+    public void ConfigureServices(IServiceCollection services)
     {
-        app.UseExceptionHandler("/Home/Error");
-        app.UseHsts();
+        services.AddControllersWithViews();
     }
-    app.UseHttpsRedirection();
-    app.UseStaticFiles(); // Asegúrate de que esta línea esté presente
 
-    app.UseRouting();
-
-    app.UseAuthorization();
-
-    app.UseEndpoints(endpoints =>
+    // Este método se llama en tiempo de ejecución. Usa este método para configurar el canal de solicitudes HTTP.
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        endpoints.MapControllerRoute(
-            name: "default",
-            pattern: "{controller=Home}/{action=Index}/{id?}");
-    });
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+        else
+        {
+            app.UseExceptionHandler("/Home/Error");
+            app.UseHsts();
+        }
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+
+        app.UseRouting();
+
+        app.UseAuthorization();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+        });
+    }
 }
+
 
