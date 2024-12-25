@@ -10,7 +10,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         app.UseHsts();
     }
     app.UseHttpsRedirection();
-    app.UseStaticFiles(); // Asegúrate de que esta línea esté presente
+    app.UseStaticFiles(); // Esta línea es crucial
 
     app.UseRouting();
 
