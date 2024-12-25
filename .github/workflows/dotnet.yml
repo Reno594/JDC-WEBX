@@ -1,13 +1,17 @@
-name: .NET
+name: Build and Deploy Blazor WebAssembly App
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout the code
+      uses: actions/checkout@v2
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
@@ -15,30 +19,20 @@ jobs:
         dotnet-version: '6.0.x'
 
     - name: Install dependencies
-      run: dotnet restore "Generador de oferta.sln"
+      run: dotnet restore
 
     - name: Build
-      run: dotnet build "Generador de oferta.sln" --configuration Release --no-restore
-
-    - name: Test
-      run: dotnet test "Generador de oferta.sln" --no-build --verbosity normal
+      run: dotnet build --configuration Release --no-restore
 
     - name: Publish
-      run: dotnet publish "Generador de oferta.csproj" --configuration Release --output ./publish
-
-    - name: List publish directory
-      run: ls -al ./publish
+      run: dotnet publish -c Release -o build
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./publish
+        publish_dir: ./build/wwwroot
 
-<<<<<<< HEAD
-=======
-
-      with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./publish
 >>>>>>> 8f8260cd3a6d958dc02101b81949626d6ee4a4b8
