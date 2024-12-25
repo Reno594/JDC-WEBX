@@ -13,15 +13,23 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Build and publish
-      run: |
-        dotnet restore
-        dotnet build --configuration Release
-        dotnet publish --configuration Release --output ./publish
-        mv ./publish /tmp/publish
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore JDC-WEBX.sln
+
+    - name: Build
+      run: dotnet build JDC-WEBX.sln --configuration Release --no-restore
+
+    - name: Publish
+      run: dotnet publish JDC-WEBX.sln --configuration Release --output ./publish
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: /tmp/publish
+        publish_dir: ./publish
+
