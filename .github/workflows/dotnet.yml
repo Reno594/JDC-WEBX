@@ -34,6 +34,7 @@ jobs:
         publish_dir: ./build/wwwroot
 
 
+
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./publish
 >>>>>>> 8f8260cd3a6d958dc02101b81949626d6ee4a4b8
