@@ -21,7 +21,7 @@ jobs:
       run: dotnet build JDC-WEBX.sln --configuration Release --no-restore
 
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test JDC-WEBX.sln --no-build --verbosity normal
 
     - name: Publish
       run: dotnet publish JDC-WEBX.csproj --configuration Release --output ./publish
@@ -31,6 +31,10 @@ jobs:
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./publish
+
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./publish
