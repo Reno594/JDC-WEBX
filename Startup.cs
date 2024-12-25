@@ -23,3 +23,4 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
             pattern: "{controller=Home}/{action=Index}/{id?}");
     });
 }
+
