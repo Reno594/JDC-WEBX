@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JDC-WEBX", "JDC-WEBX\JDC-WEBX.csproj", "{2D35EFBA-42A3-4B6B-AA52-0217479EA270}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D35EFBA-42A3-4B6B-AA52-0217479EA270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D35EFBA-42A3-4B6B-AA52-0217479EA270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D35EFBA-42A3-4B6B-AA52-0217479EA270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D35EFBA-42A3-4B6B-AA52-0217479EA270}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
