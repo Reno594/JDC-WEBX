@@ -15,16 +15,16 @@ jobs:
         dotnet-version: '6.0.x'
 
     - name: Install dependencies
-      run: dotnet restore JDC-WEBX.sln
+      run: dotnet restore "Generador de oferta.sln"
 
     - name: Build
-      run: dotnet build JDC-WEBX.sln --configuration Release --no-restore
+      run: dotnet build "Generador de oferta.sln" --configuration Release --no-restore
 
     - name: Test
-      run: dotnet test JDC-WEBX.sln --no-build --verbosity normal
+      run: dotnet test "Generador de oferta.sln" --no-build --verbosity normal
 
     - name: Publish
-      run: dotnet publish JDC-WEBX.csproj --configuration Release --output ./publish
+      run: dotnet publish "Generador de oferta.csproj" --configuration Release --output ./publish
 
     - name: List publish directory
       run: ls -al ./publish
@@ -34,6 +34,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./publish
+
 
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
