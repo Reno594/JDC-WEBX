@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: Build and Test .NET
 
 on:
   push:
@@ -27,4 +27,6 @@ jobs:
       run: dotnet build --no-restore
 
     - name: Run tests
+      run: dotnet test --no-build --verbosity normal
+
       run: dotnet test --no-build --verbosity normal
