@@ -1,5 +1,12 @@
-bin/
-obj/
-.vs/
-*.user
-*.suo
+[user]
+	name = Reno594
+	email = jdieppacastillo@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = Page-Web
+[safe]
+	directory = C:/JDC-WEBX
