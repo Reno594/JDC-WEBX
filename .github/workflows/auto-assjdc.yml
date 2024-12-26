@@ -1,4 +1,5 @@
-name: 'Auto Assign'
+name: Auto Assign
+
 on:
   pull_request_target:
     types: [opened, ready_for_review]
@@ -7,4 +8,8 @@ jobs:
   add-reviews:
     runs-on: ubuntu-latest
     steps:
-      - uses: kentaro-m/auto-assign-action@v1.2.2
+      - name: 'Auto-assign reviewers'
+        uses: kentaro-m/auto-assign-action@v1.2.2
+        with:
+          reviewers: 'Reno594, miusuario1, miusuario2'
+          team-reviewers: 'myteam'
