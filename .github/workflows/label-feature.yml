@@ -1,0 +1,22 @@
+name: Cerrar como una característica
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  build:
+    permissions:
+      issues: write
+    runs-on: ubuntu-latest
+    steps:
+    - name: Cerrar Issue
+      uses: peter-evans/close-issue@v3
+      if: contains(github.event.issue.labels.*.name, 'feature')
+      with:
+        comment: |
+          Gracias 🙇 por esta solicitud. Esta solicitud ha sido clasificada como una característica por los mantenedores.
+          
+          Tomamos todas las solicitudes de características en serio y las hemos pasado a los equipos internos para su consideración.
+          
+          Debido a que cualquier característica requiere mantenimiento y soporte adicional a largo plazo por parte de este equipo, nos gustaría ser cautelosos al agregar nuevas características. Si esta característica es algo que se puede implementar de manera independiente, por favor considera hacer un fork de este repositorio y agregar la característica.
