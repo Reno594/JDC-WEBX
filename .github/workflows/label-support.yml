@@ -1,0 +1,22 @@
+name: Cerrar como una solicitud de soporte
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  build:
+    permissions:
+      issues: write
+    runs-on: ubuntu-latest
+    steps:
+    - name: Cerrar Issue
+      uses: peter-evans/close-issue@v3
+      if: contains(github.event.issue.labels.*.name, 'support')
+      with:
+        comment: |
+          Lo sentimos, pero nos gustaría mantener los issues relacionados con el código en este repositorio. Gracias 🙇 
+          
+          Si tienes preguntas sobre cómo escribir flujos de trabajo o archivos de acción, por favor [visita el tablero de acciones del Foro de la Comunidad de GitHub](https://github.community/t5/GitHub-Actions/bd-p/actions)
+          
+          Si tienes un problema o pregunta sobre GitHub Actions, por favor [contacta con el soporte al cliente](https://help.github.com/en/articles/about-github-actions#contacting-support)
